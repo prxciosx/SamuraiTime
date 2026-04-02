@@ -14,5 +14,3 @@ dash_available = 1;
 ataque = false;
 tp = false;
 
-global.ts = false;
-global.dano = 25;

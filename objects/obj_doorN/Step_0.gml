@@ -1,18 +1,26 @@
-// define lado da porta
+// Define se a sala 11 deve inverter as portas
+var inverter = (room == Room11);
+
+// define lado da porta baseado na posição e na inversão
 if (x > 700) {
-    image_xscale = 1;
-    direcao = 1;
+    direcao = inverter ? -1 : 1;
 } else {
-    image_xscale = -1;
-    direcao = -1;
+    direcao = inverter ? 1 : -1;
 }
+image_xscale = direcao;
 
 // interação
-if (place_meeting(x,y,obj_player) && keyboard_check_pressed(ord("X"))) {
-    sprite_index = spr_doorOpen;
-    image_index = 0;
-    image_speed = 1;
-    abrindo = true;
+if (place_meeting(x, y, obj_player) && keyboard_check_pressed(ord("X"))) {
+    
+    // se for sala 2 e NÃO tiver chave, bloqueia
+    if (room == Room2 && global.key == false) {
+        show_message("A porta está trancada. Você precisa de uma chave.");
+    } else {
+        sprite_index = spr_doorOpen;
+        image_index = 0;
+        image_speed = 1;
+        abrindo = true;
+    }
 }
 
 // fim da animação
