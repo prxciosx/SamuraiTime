@@ -5,13 +5,18 @@ var move = keyboard_check(ord("D")) - keyboard_check(ord("A"));
 #region TIME STOP (SEGURAR TECLA)
 
 // se estiver segurando U → ativa tempo parado
-if (keyboard_check(ord("U"))) {
+if (keyboard_check(ord("U")) and (global.tsu > 0)) {
     tp = true;           // modo de mira / tempo parado
     global.ts = true;    // variável global (usada pelos inimigos)
+	
 } else {
     tp = false;
     global.ts = false;
 }
+// quando soltar u -> perde 1 carga de time stop
+if (keyboard_check_released(ord("U"))){
+	global.tsu-=1;
+	}
 
 #endregion
 #region MOVIMENTO
@@ -119,40 +124,63 @@ if (tp && mouse_check_button_pressed(mb_left)) {
     var x1 = x;
     var y1 = y;
 
-    // posição final (mouse)
+    // posição do mouse
     var x2 = mouse_x;
     var y2 = mouse_y;
 
-    // calcula distância e direção da linha
-    var dist = point_distance(x1, y1, x2, y2);
+    // direção e distância
     var dir = point_direction(x1, y1, x2, y2);
+    var dist = point_distance(x1, y1, x2, y2);
 
-    // percorre a linha ponto por ponto
-    for (var i = 0; i < dist; i += 6) {
+    // posição final válida (pra não atravessar parede)
+    var final_x = x1;
+    var final_y = y1;
+
+    // percorre a linha do corte
+    for (var i = 0; i < dist; i += 4) {
 
         var px = x1 + lengthdir_x(i, dir);
         var py = y1 + lengthdir_y(i, dir);
 
-        // verifica se existe inimigo nesse ponto
-        var inimigo = instance_place(px, py, obj_inm);
+        // se bater em parede, para o corte
+        if (place_meeting(px, py, obj_block)) {
+            break;
+        }
+
+        // salva última posição válida
+        final_x = px;
+        final_y = py;
+
+        // verifica inimigo
+        var inimigo = instance_place(px, py, obj_ghost);
 
         if (inimigo != noone) {
-            inimigo.vida = 0; // mata o inimigo
+            inimigo.vida = 0;
         }
+		
     }
 
-    // efeito visual no final do corte
-    effect_create_above(ef_spark, x2, y2, 1, c_white);
 
-    // teleporta o player pro final do corte
-    x = x2;
-    y = y2;
+    // move o player até onde o corte chegou
+    x = final_x;
+    y = final_y;
 
     // desativa tempo parado
     tp = false;
     global.ts = false;
 }
-
+#endregion
+#region DANO DO INIMIGO E STUN
+if ((place_meeting(x,y, obj_inm) or place_meeting(x,y,obj_ghost)) and (!stun)){
+	vida -= 1;
+	stun = true;
+	alarm[0] = 30;
+	image_blend = c_red;
+}
+if (vida<=0){
+	show_message("Você Morreu")
+	game_restart()
+}
 #endregion
 #region RESET
 
