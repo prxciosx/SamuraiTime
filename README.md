@@ -20,6 +20,7 @@ Seu objetivo é atravessar as salas do templo, derrotar os inimigos e encontrar 
 ## ⚔️ Inimigos
 
 - Fantasmas com movimentação simples (patrulha linear)
+- Fantasma que perseguem a posição do player
 - Mais variações planejadas
 
 ## 🚧 Estado do projeto
@@ -27,12 +28,46 @@ Seu objetivo é atravessar as salas do templo, derrotar os inimigos e encontrar 
 O jogo ainda está em desenvolvimento.  
 Atualmente já possui:
 
-- Sistema de salas funcional
-- Movimentação básica do jogador
-- Inimigos simples
-- Time stop implementado (precisa de ajustes de colisão)
-- Dash (precisa de polimento)
-- Pulo duplo funcional
+Jogador
+    Movimentação completa
+    Pulo duplo
+    Dash (corrigido)
+    Ataque básico com M1
+    Time stop com tecla U
+    Corte planejado no time stop
+    Limite de usos do time stop
+    Barra de vida
+    Sistema de dano
+    Stun pós-dano
+
+Inimigos
+    Fantasma de teste
+    Fantasma perseguidor (atravessa paredes)
+    Fantasma Etéreo (imortal no time stop)
+    Fantasma Temporal (vulnerável só no time stop)
+    Boss final (a fazer)
+
+Progressão
+    11 salas
+    Sistema de portas
+    Transição correta entre salas
+    Sistema de chaves
+    Combate obrigatório por sala (planejado)
+    
+Interface
+    Tela de menu
+    Sistema de morte (volta ao menu)
+    Persistência entre salas
+    Time stop globalizado
+
+Arte
+    Design dos 3 personagens (entregue)
+    Animações (produção)
+    Tilesets e fundo (Guiven)
+
+Áudio
+    Música (vou fazer)
+
 
 ## 🛠️ Tecnologias
 
@@ -43,7 +78,9 @@ Atualmente já possui:
 
 Desenvolver um jogo com foco em mecânica principal simples, porém interessante, explorando o uso estratégico do tempo no combate.
 
-## 📌 Controles (exemplo)
+Tema da Jam: invencibilidade
+
+## 📌 Controles
 
 - A / D → mover
 - Espaço → pular
@@ -56,7 +93,7 @@ Desenvolver um jogo com foco em mecânica principal simples, porém interessante
 
 ## 📅 Devlog
 
-O desenvolvimento está sendo documentado ao longo da GameName Jam.
+[O desenvolvimento está sendo documentado ao longo da GameName Jam.](https://nickzksks.itch.io/samuraitime)
 
 ## 👤 Autor
 
