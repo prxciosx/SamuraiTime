@@ -96,8 +96,10 @@ y += vspd;
 
 // dash só funciona fora do tempo parado
 if (!tp && keyboard_check_pressed(ord("Q")) && dash_available > 0) {
+	if (!place_meeting(x+(dash_power * dash_dir),y,obj_block)){
     x += dash_power * dash_dir; // move rapidamente
     dash_available--;           // consome dash
+	}
 }
 
 #endregion
@@ -106,7 +108,7 @@ if (!tp && keyboard_check_pressed(ord("Q")) && dash_available > 0) {
 // ataque comum (tecla Enter)
 if (!tp && mouse_check_button(1) && !ataque) {
     ataque = true;
-
+	
     // cria objeto de ataque
     var atk = instance_create_depth(x, y, depth - 1, obj_atk);
 
@@ -167,6 +169,7 @@ if (tp && mouse_check_button_pressed(mb_left)) {
 
     // desativa tempo parado
     tp = false;
+	global.tsu -= 1;
     global.ts = false;
 }
 #endregion
@@ -178,8 +181,8 @@ if ((place_meeting(x,y, obj_inm) or place_meeting(x,y,obj_ghost)) and (!stun)){
 	image_blend = c_red;
 }
 if (vida<=0){
-	show_message("Você Morreu")
-	game_restart()
+	instance_destroy();
+	room_goto(MenuI);
 }
 #endregion
 #region RESET

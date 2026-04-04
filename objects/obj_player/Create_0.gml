@@ -14,5 +14,6 @@ dash_available = 1;
 ataque = false;
 tp = false;
 
-vida = 5;
+vida_max = 5;
+vida = 0;
 stun = false;

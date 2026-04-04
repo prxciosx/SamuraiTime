@@ -8,8 +8,9 @@ if (!global.ts) {
 
 #region MOVIMENTO
 
-move_towards_point(obj_player.x, obj_player.y, spd);
-
+if (! place_meeting(x,y,obj_block)){
+	move_towards_point(obj_player.x, obj_player.y, spd);
+}
 
 #endregion
 
