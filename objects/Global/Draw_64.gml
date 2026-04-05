@@ -1,30 +1,106 @@
-
 #region HUD VIDA
+// Colocar no DRAW GUI Event do obj_global
 
 var p = instance_find(obj_player, 0);
-
+	
 if (p != noone) {
+    var largura = 200;
+    var altura = 30;
+    var x_barra = 73;
+    var y_barra = 20;
+    
+    var vida_ratio = 0;
+    if (p.vida_max > 0) {
+        vida_ratio = p.vida / p.vida_max;
+    }
+    
+    // Moldura estilo pergaminho/samurai
+    draw_set_color(c_black);
+    draw_rectangle(x_barra - 2, y_barra - 2, x_barra + largura + 2, y_barra + altura + 2, false);
+    
+    // Fundo da barra (vermelho escuro)
+    draw_set_color(make_color_rgb(80, 20, 20));
+    draw_rectangle(x_barra, y_barra, x_barra + largura, y_barra + altura, false);
+    
+    // Vida atual (gradiente de vermelho para dourado)
+    if (vida_ratio > 0.6) {
+        draw_set_color(make_color_rgb(255, 200, 50)); // dourado
+    } else if (vida_ratio > 0.3) {
+        draw_set_color(make_color_rgb(255, 100, 30)); // laranja
+    } else {
+        draw_set_color(make_color_rgb(180, 30, 30)); // vermelho sangue
+    }
+    
+    draw_rectangle(x_barra, y_barra, x_barra + (largura * vida_ratio), y_barra + altura, false);
+    
+    // Bordas internas (efeito "sulco")
+    draw_set_color(c_black);
+    draw_rectangle(x_barra, y_barra, x_barra + largura, y_barra + 2, false); // borda superior
+    draw_rectangle(x_barra, y_barra + altura - 2, x_barra + largura, y_barra + altura, false); // borda inferior
+}
+#endregion
+#region HUD TIME STOP
 
-	var largura = 200;
-	var altura = 20;
+var x_pos = 30;
+var y_pos = 35;
+var tamanho = 50;
+var usos = global.tsu;
+var usos_max = 3;
 
-	var vida_ratio = 0;
-	if (p.vida_max > 0) {
-		vida_ratio = p.vida / p.vida_max;
-	}
+var ratio = usos / usos_max;
 
-	// fundo
-	draw_set_color(c_red);
-	draw_rectangle(20, 20, 20 + largura, 20 + altura, false);
+// Fundo escuro
+draw_set_color(c_black);
+draw_set_alpha(0.7);
+draw_circle(x_pos, y_pos, tamanho/2, false);
+draw_set_alpha(1);
 
-	// vida atual
-	draw_set_color(c_green);
-	draw_rectangle(20, 20, 20 + (largura * vida_ratio), 20 + altura, false);
+// Borda que muda de cor
+if (ratio > 0.6) {
+    draw_set_color(make_color_rgb(100, 200, 150));
+} else if (ratio > 0.3) {
+    draw_set_color(make_color_rgb(220, 180, 80));
+} else {
+    draw_set_color(make_color_rgb(200, 50, 50));
+}
+draw_circle(x_pos, y_pos, tamanho/2, true);
+
+// Preenchimento interno que diminui
+draw_set_color(c_black);
+draw_circle(x_pos, y_pos, (tamanho/2 - 4) * ratio, false);
+
+// Rachaduras (aparecem quando baixo)
+if (ratio < 0.6) {
+    draw_set_color(make_color_rgb(200, 100, 50));
+    draw_set_alpha(0.8);
+    draw_line(x_pos - 8, y_pos - 5, x_pos + 3, y_pos + 6);
+    draw_line(x_pos + 9, y_pos - 3, x_pos + 14, y_pos + 2);
+    if (ratio < 0.3) {
+        draw_line(x_pos - 12, y_pos + 3, x_pos - 4, y_pos + 9);
+        draw_line(x_pos + 5, y_pos + 8, x_pos + 11, y_pos + 14);
+        draw_line(x_pos - 2, y_pos - 12, x_pos + 4, y_pos - 4);
+    }
+    draw_set_alpha(1);
 }
 
+// Número centralizado
+draw_set_color(c_white);
+if (ratio < 0.3) {
+    draw_set_color(make_color_rgb(255, 100, 100));
+}
+
+// Centraliza o texto
+draw_set_halign(fa_center);
+draw_set_valign(fa_middle);
+
+// Desenha no centro da bolha
+draw_text(x_pos, y_pos, string(usos) + "/" + string(usos_max));
+
+// Volta ao normal (opcional, evita bugs em outros draws)
+draw_set_halign(fa_left);
+draw_set_valign(fa_top);
+
 #endregion
-
-
 #region EFEITO KING CRIMSON
 
 if (global.kc_ativo) {

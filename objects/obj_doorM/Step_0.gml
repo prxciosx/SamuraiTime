@@ -9,7 +9,12 @@ switch (room) {
 }
 
 // interação
-if (place_meeting(x,y,obj_player) && keyboard_check_pressed(ord("X"))) {
-    entrada = room;
-    room_goto(sala);
+if (global.inm >= global.inm_max){
+	if (place_meeting(x,y,obj_player) && keyboard_check_pressed(ord("X"))) {
+		entrada = room;
+		room_goto(sala);
+	}
 }
+#region HUD
+mostrar_texto = place_meeting(x, y, obj_player);
+#endregion

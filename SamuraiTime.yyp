@@ -59,6 +59,7 @@
     {"id":{"name":"spr_player","path":"sprites/spr_player/spr_player.yy",},},
     {"id":{"name":"spr_TSetChao","path":"sprites/spr_TSetChao/spr_TSetChao.yy",},},
     {"id":{"name":"Sprite10","path":"sprites/Sprite10/Sprite10.yy",},},
+    {"id":{"name":"Sprite12","path":"sprites/Sprite12/Sprite12.yy",},},
     {"id":{"name":"TSet_nRooms","path":"tilesets/TSet_nRooms/TSet_nRooms.yy",},},
   ],
   "resourceType":"GMProject",

@@ -1,8 +1,6 @@
 #region INPUT
 var move = keyboard_check(ord("D")) - keyboard_check(ord("A"));
 #endregion
-
-
 #region TIME STOP
 
 var tp_old = tp;
@@ -14,12 +12,6 @@ if (keyboard_check(ord("U")) && global.tsu > 0) {
     tp = false;
     global.ts = false;
 }
-
-// gastou carga
-if (keyboard_check_released(ord("U")) && tp_old) {
-    global.tsu -= 1;
-}
-
 // saiu do time stop → zera velocidade (EVITA BUG NA PAREDE)
 if (tp_old && !tp) {
     hspd = 0;
@@ -27,8 +19,6 @@ if (tp_old && !tp) {
 }
 
 #endregion
-
-
 #region DIREÇÃO
 
 if (move != 0 && !ataque) {
@@ -37,8 +27,6 @@ if (move != 0 && !ataque) {
 }
 
 #endregion
-
-
 #region TIME SCALE (AFETA VELOCIDADE, NÃO POSIÇÃO)
 var ts = 1;
 if (global.time_scale != undefined) {
@@ -46,8 +34,6 @@ if (global.time_scale != undefined) {
 }
 
 #endregion
-
-
 #region MOVIMENTO BASE
 
 if (!tp) {
@@ -59,16 +45,12 @@ if (!tp) {
 }
 
 #endregion
-
-
 #region VELOCIDADE FINAL (COM TIME SCALE)
 
 var h_final = hspd * ts; // slow só no horizontal
 var v_final = vspd;      // vertical NORMAL (sem slow)
 
 #endregion
-
-
 #region COLISÃO HORIZONTAL
 
 if (place_meeting(x + h_final, y, obj_block)) {
@@ -81,8 +63,6 @@ if (place_meeting(x + h_final, y, obj_block)) {
 x += h_final;
 
 #endregion
-
-
 #region PULO
 
 if (!tp && keyboard_check_pressed(vk_space) && jump > 0) {
@@ -91,8 +71,6 @@ if (!tp && keyboard_check_pressed(vk_space) && jump > 0) {
 }
 
 #endregion
-
-
 #region COLISÃO VERTICAL
 // só trava no chão se estiver caindo
 if (vspd > 0 && place_meeting(x, y + vspd, obj_block)) {
@@ -118,8 +96,6 @@ if (vspd < 0 && place_meeting(x, y + vspd, obj_block)) {
 
 y += vspd;
 #endregion
-
-
 #region DASH
 
 if (!tp && keyboard_check_pressed(ord("Q")) && dash_available > 0) {
@@ -130,8 +106,6 @@ if (!tp && keyboard_check_pressed(ord("Q")) && dash_available > 0) {
 }
 
 #endregion
-
-
 #region ATAQUE NORMAL
 
 if (attack_cooldown > 0) attack_cooldown--;
@@ -147,8 +121,6 @@ if (!tp && mouse_check_button_pressed(mb_left) && attack_cooldown <= 0) {
 }
 
 #endregion
-
-
 #region SLASH (AFETA BOSS)
 
 if (tp && mouse_check_button_pressed(mb_left)) {
@@ -191,8 +163,6 @@ if (tp && mouse_check_button_pressed(mb_left)) {
 }
 
 #endregion
-
-
 #region DANO + STUN
 
 if ((place_meeting(x,y,obj_inm) || place_meeting(x,y,obj_ghost) || place_meeting(x,y,obj_boss)) && !stun) {
@@ -208,8 +178,6 @@ if (vida <= 0) {
 }
 
 #endregion
-
-
 #region RESET
 
 if (keyboard_check_pressed(ord("R"))) {

@@ -22,6 +22,7 @@ x += hspd;
 #region MORTE
 
 if (vida <= 0) {
+	global.inm += 1;
     instance_destroy();
 }
 

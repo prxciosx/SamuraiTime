@@ -1,3 +1,6 @@
+global.inm = 0;
+global.inm_max = 0;
+
 global.key = false;
 global.ts = false;
 global.dano = 25;
