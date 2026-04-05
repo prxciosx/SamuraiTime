@@ -121,3 +121,60 @@ if (global.kc_ativo) {
 }
 
 #endregion
+#region EFEITO THE WORLD
+// Ativar/desativar efeito
+if (global.ts == true && !effect_active) {
+    effect_active = true;
+    
+    // Partículas ao ativar
+    for (var i = 0; i < 60; i++) {
+        var xx = camera_get_view_x(view_camera[0]) + random(camera_get_view_width(view_camera[0]));
+        var yy = camera_get_view_y(view_camera[0]) + random(camera_get_view_height(view_camera[0]));
+        part_particles_create(part_sys, xx, yy, part_spark, 1);
+    }
+    
+    shake = 8;
+    color_alpha = 0.6;
+}
+
+if (global.ts == false && effect_active) {
+    effect_active = false;
+    
+    // Partículas ao desativar
+    for (var i = 0; i < 40; i++) {
+        var xx = camera_get_view_x(view_camera[0]) + random(camera_get_view_width(view_camera[0]));
+        var yy = camera_get_view_y(view_camera[0]) + random(camera_get_view_height(view_camera[0]));
+        part_particles_create(part_sys, xx, yy, part_spark, 1);
+    }
+    
+    color_alpha = 0;
+}
+
+// Efeitos visuais quando ativo
+if (effect_active) {
+    // Deslocamento RGB
+    rgb_shift = sin(current_time * 0.02) * 2.5;
+    
+    // Pisca levemente
+    if (irandom(30) == 0) {
+        color_alpha = 0.7;
+        alarm[0] = 5;
+    }
+    
+    // Partículas flutuantes
+    if (irandom(10) == 0) {
+        var xx = camera_get_view_x(view_camera[0]) + random(camera_get_view_width(view_camera[0]));
+        var yy = camera_get_view_y(view_camera[0]) + random(camera_get_view_height(view_camera[0]));
+        part_particles_create(part_sys, xx, yy, part_spark, 1);
+    }
+    
+    // Tremor na câmera
+    if (shake > 0) {
+        shake -= 0.5;
+        var _cam = view_camera[0];
+        camera_set_view_pos(_cam, 
+            camera_get_view_x(_cam) + random_range(-shake, shake),
+            camera_get_view_y(_cam) + random_range(-shake, shake));
+    }
+}
+#endregion

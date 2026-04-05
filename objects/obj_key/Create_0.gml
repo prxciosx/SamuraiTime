@@ -1,0 +1,1 @@
+texto = "Press X to pick up the key";

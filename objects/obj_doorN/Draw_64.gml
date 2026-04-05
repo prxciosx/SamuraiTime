@@ -3,8 +3,6 @@ if ((mostrar_texto) && (global.inm >= global.inm_max)) {
     var px = camera_get_view_x(view_camera[0]) + x;
     var py = camera_get_view_y(view_camera[0]) + y - 90;
 
-    var texto = "Press X";
-
     draw_set_halign(fa_center);
     draw_set_valign(fa_middle);
 

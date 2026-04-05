@@ -8,14 +8,13 @@ if (x > 700) {
     direcao = inverter ? 1 : -1;
 }
 image_xscale = direcao;
-
 // interação
 if (global.inm >= global.inm_max){
 if (place_meeting(x, y, obj_player) && keyboard_check_pressed(ord("X"))) {
     
     // se for sala 2 e NÃO tiver chave, bloqueia
     if (room == Room2 && global.key == false && x>700) {
-        show_message("A porta está trancada. Você precisa de uma chave.");
+        texto = "A porta está trancada. Você precisa de uma chave.";
     } else {
         sprite_index = spr_doorOpen;
         image_index = 0;
@@ -30,8 +29,14 @@ if (abrindo && image_index >= image_number - 1) {
         room_goto_next();
     } else {
         room_goto_previous();
-    }
+		}
 }
+}
+//mudar texto
+if (room == Room2 && global.key == false && x>700) {
+        texto = "Need a key..";
+} else {
+	texto = "Press X";
 }
 #region HUD
 mostrar_texto = place_meeting(x, y, obj_player);

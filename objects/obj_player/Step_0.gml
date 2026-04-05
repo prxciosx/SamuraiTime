@@ -2,7 +2,6 @@
 var move = keyboard_check(ord("D")) - keyboard_check(ord("A"));
 #endregion
 #region TIME STOP
-
 var tp_old = tp;
 
 if (keyboard_check(ord("U")) && global.tsu > 0) {
@@ -17,25 +16,20 @@ if (tp_old && !tp) {
     hspd = 0;
     vspd = 0;
 }
-
 #endregion
 #region DIREÇÃO
-
 if (move != 0 && !ataque) {
     image_xscale = move;
     dash_dir = move;
 }
-
 #endregion
 #region TIME SCALE (AFETA VELOCIDADE, NÃO POSIÇÃO)
 var ts = 1;
 if (global.time_scale != undefined) {
     ts = global.time_scale;
 }
-
 #endregion
 #region MOVIMENTO BASE
-
 if (!tp) {
     hspd = move * spd;
     vspd += grv;
@@ -43,33 +37,25 @@ if (!tp) {
     hspd = 0;
     vspd = 0;
 }
-
 #endregion
 #region VELOCIDADE FINAL (COM TIME SCALE)
-
 var h_final = hspd * ts; // slow só no horizontal
 var v_final = vspd;      // vertical NORMAL (sem slow)
-
 #endregion
 #region COLISÃO HORIZONTAL
-
 if (place_meeting(x + h_final, y, obj_block)) {
     while (!place_meeting(x + sign(h_final), y, obj_block)) {
         x += sign(h_final);
     }
     h_final = 0;
 }
-
 x += h_final;
-
 #endregion
 #region PULO
-
 if (!tp && keyboard_check_pressed(vk_space) && jump > 0) {
     vspd = jspd;
     jump--;
 }
-
 #endregion
 #region COLISÃO VERTICAL
 // só trava no chão se estiver caindo
@@ -93,21 +79,17 @@ if (vspd < 0 && place_meeting(x, y + vspd, obj_block)) {
 
     vspd = 0;
 }
-
 y += vspd;
 #endregion
 #region DASH
-
 if (!tp && keyboard_check_pressed(ord("Q")) && dash_available > 0) {
     if (!place_meeting(x + dash_power * dash_dir, y, obj_block)) {
         x += dash_power * dash_dir;
         dash_available--;
     }
 }
-
 #endregion
 #region ATAQUE NORMAL
-
 if (attack_cooldown > 0) attack_cooldown--;
 
 if (!tp && mouse_check_button_pressed(mb_left) && attack_cooldown <= 0) {
@@ -119,10 +101,8 @@ if (!tp && mouse_check_button_pressed(mb_left) && attack_cooldown <= 0) {
 
     attack_cooldown = attack_delay;
 }
-
 #endregion
 #region SLASH (AFETA BOSS)
-
 if (tp && mouse_check_button_pressed(mb_left)) {
 
     var x1 = x;
@@ -161,10 +141,8 @@ if (tp && mouse_check_button_pressed(mb_left)) {
     global.ts = false;
     global.tsu -= 1;
 }
-
 #endregion
 #region DANO + STUN
-
 if ((place_meeting(x,y,obj_inm) || place_meeting(x,y,obj_ghost) || place_meeting(x,y,obj_boss)) && !stun) {
     vida -= 1;
     stun = true;
@@ -176,14 +154,11 @@ if (vida <= 0) {
     room_goto(MenuI);
     instance_destroy();
 }
-
 #endregion
 #region RESET
-
 if (keyboard_check_pressed(ord("R"))) {
     room_restart();
 }
-
 #endregion
 #region EFEITO KC
 if (global.kc_ativo && irandom(2) == 0) {
