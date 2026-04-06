@@ -19,7 +19,7 @@ if (tp_old && !tp) {
 #endregion
 #region DIREÇÃO
 if (move != 0 && !ataque) {
-    image_xscale = (move*2);
+    image_xscale = move;
     dash_dir = move;
 }
 #endregion
@@ -96,7 +96,7 @@ if (!tp && mouse_check_button_pressed(mb_left) && attack_cooldown <= 0) {
 
     ataque = true;
 
-    var atk = instance_create_depth(x + 64, y, depth - 1, obj_atk);
+    var atk = instance_create_depth(x * 16, y - 50, depth - 1, obj_atk);
     atk.image_xscale = image_xscale;
 
     attack_cooldown = attack_delay;
@@ -106,7 +106,7 @@ if (!tp && mouse_check_button_pressed(mb_left) && attack_cooldown <= 0) {
 if (tp && mouse_check_button_pressed(mb_left)) {
 
     var x1 = x;
-    var y1 = y;
+    var y1 = y - 64;
 
     var x2 = mouse_x;
     var y2 = mouse_y;
@@ -169,36 +169,47 @@ if (global.kc_ativo && irandom(2) == 0) {
 }
 #endregion
 #region ANIMAÇÃO POR STATE
-// define estado
-switch (move){
-	case -1: state = "WL"; break;
-	case 0: state = "Idle"; break;
-	case 1: state = "WR"; break;
+
+var no_chao = place_meeting(x, y+1, obj_block);
+
+// DEFINE STATE
+if (!no_chao || vspd != 0){
+	state = "J";
+} else {
+	switch (move){
+		case -1: state = "WL"; break;
+		case 0: state = "Idle"; break;
+		case 1: state = "WR"; break;
+	}
 }
 
-// se mudou, reinicia animação
-if (state != state_old){
-	image_index = 0;
-}
-
-// aplica animação
+// APLICA ANIMAÇÃO
 switch (state){
+
 	case "Idle":
-		sprite_index = spr_playerIdle;
-		image_speed = 0.2;
+		image_index = 0;
+		image_speed = 0;
 	break;
 
 	case "WL":
 		sprite_index = spr_playerWL;
-		image_speed = 0.3;
+		image_speed = 1;
 	break;
 
 	case "WR":
 		sprite_index = spr_playerWR;
-		image_speed = 0.3;
+		image_speed = 1;
+	break;
+
+	case "J":
+		image_speed=0;
+		// mantém frame até realmente estabilizar
+		if (!no_chao){
+			image_index = 1; // subindo
+		}else {
+			image_index = 0; // caindo
+		}
 	break;
 }
 
-// salva estado
-state_old = state;
 #endregion
