@@ -1,3 +1,6 @@
+image_xscale = 2;
+image_yscale = 2;
+
 // movimento
 hspd = 0;
 vspd = 0;
@@ -22,3 +25,6 @@ vida = 5;
 vida_max=5;
 attack_cooldown = 0;
 attack_delay = 15;
+
+state = "idle";
+state_old = "idle";

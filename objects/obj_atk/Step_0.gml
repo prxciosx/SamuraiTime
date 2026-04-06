@@ -1,7 +1,7 @@
 #region SEGUIR PLAYER (posição do ataque)
 
-x = obj_player.x + (obj_player.image_xscale * 16);
-y = obj_player.y;
+x = obj_player.x + (obj_player.image_xscale * 10);
+y = obj_player.y - 64;
 
 image_xscale = obj_player.image_xscale;
 

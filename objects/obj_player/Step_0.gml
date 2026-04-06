@@ -19,7 +19,7 @@ if (tp_old && !tp) {
 #endregion
 #region DIREÇÃO
 if (move != 0 && !ataque) {
-    image_xscale = move;
+    image_xscale = (move*2);
     dash_dir = move;
 }
 #endregion
@@ -96,7 +96,7 @@ if (!tp && mouse_check_button_pressed(mb_left) && attack_cooldown <= 0) {
 
     ataque = true;
 
-    var atk = instance_create_depth(x, y, depth - 1, obj_atk);
+    var atk = instance_create_depth(x + 64, y, depth - 1, obj_atk);
     atk.image_xscale = image_xscale;
 
     attack_cooldown = attack_delay;
@@ -167,4 +167,38 @@ if (global.kc_ativo && irandom(2) == 0) {
     ghost.sprite_index = sprite_index;
     ghost.image_index = image_index;
 }
+#endregion
+#region ANIMAÇÃO POR STATE
+// define estado
+switch (move){
+	case -1: state = "WL"; break;
+	case 0: state = "Idle"; break;
+	case 1: state = "WR"; break;
+}
+
+// se mudou, reinicia animação
+if (state != state_old){
+	image_index = 0;
+}
+
+// aplica animação
+switch (state){
+	case "Idle":
+		sprite_index = spr_playerIdle;
+		image_speed = 0.2;
+	break;
+
+	case "WL":
+		sprite_index = spr_playerWL;
+		image_speed = 0.3;
+	break;
+
+	case "WR":
+		sprite_index = spr_playerWR;
+		image_speed = 0.3;
+	break;
+}
+
+// salva estado
+state_old = state;
 #endregion

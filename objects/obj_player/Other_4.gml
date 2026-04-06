@@ -2,11 +2,11 @@ global.tsu = 3;
 vida = 5;
 // direita → vai pra esquerda
 if (x > 920) {
-    x = 90;
+    x = 110;
 } 
 // esquerda → vai pra direita
 else if (x < 380) {
-    x = 1280;
+    x = 1260;
 } 
 // meio → usa porta do meio
 else {

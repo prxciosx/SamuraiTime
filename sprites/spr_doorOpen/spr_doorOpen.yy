@@ -26,7 +26,7 @@
   ],
   "name":"spr_doorOpen",
   "nineSlice":null,
-  "origin":9,
+  "origin":7,
   "parent":{
     "name":"Sprite",
     "path":"folders/Sprite.yy",
@@ -87,7 +87,7 @@
     ],
     "visibleRange":null,
     "volume":1.0,
-    "xorigin":55,
+    "xorigin":32,
     "yorigin":64,
   },
   "swatchColours":null,
