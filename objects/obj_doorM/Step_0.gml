@@ -10,7 +10,7 @@ switch (room) {
 
 // interação
 if (global.inm >= global.inm_max){
-	if (place_meeting(x,y,obj_player) && keyboard_check_pressed(ord("X"))) {
+	if (place_meeting(x,y,obj_player) && keyboard_check_pressed(ord("X")) && !abrindo) {
 		entrada = room;
 		
 		sprite_index = spr_doorMOpen;

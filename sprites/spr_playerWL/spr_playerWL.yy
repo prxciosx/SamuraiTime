@@ -22,8 +22,7 @@
   "height":128,
   "HTile":false,
   "layers":[
-    {"$GMImageLayer":"","%Name":"a588d14c-21f5-485e-bdbf-de0af02ca116","blendMode":0,"displayName":"Layer 1","isLocked":false,"name":"a588d14c-21f5-485e-bdbf-de0af02ca116","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
-    {"$GMImageLayer":"","%Name":"60b82399-2873-441b-83e8-c1ed7123f72b","blendMode":0,"displayName":"Layer 2","isLocked":false,"name":"60b82399-2873-441b-83e8-c1ed7123f72b","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
+    {"$GMImageLayer":"","%Name":"019ef3fd-17e9-4101-8d59-71b225a2cec0","blendMode":0,"displayName":"Layer 2","isLocked":false,"name":"019ef3fd-17e9-4101-8d59-71b225a2cec0","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
   ],
   "name":"spr_playerWL",
   "nineSlice":null,

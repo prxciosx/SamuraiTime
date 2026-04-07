@@ -73,6 +73,8 @@
     {"id":{"name":"spr_inm","path":"sprites/spr_inm/spr_inm.yy",},},
     {"id":{"name":"spr_key","path":"sprites/spr_key/spr_key.yy",},},
     {"id":{"name":"spr_LifeBar","path":"sprites/spr_LifeBar/spr_LifeBar.yy",},},
+    {"id":{"name":"spr_playerAL","path":"sprites/spr_playerAL/spr_playerAL.yy",},},
+    {"id":{"name":"spr_playerAR","path":"sprites/spr_playerAR/spr_playerAR.yy",},},
     {"id":{"name":"spr_playerWL","path":"sprites/spr_playerWL/spr_playerWL.yy",},},
     {"id":{"name":"spr_playerWR","path":"sprites/spr_playerWR/spr_playerWR.yy",},},
     {"id":{"name":"spr_ts","path":"sprites/spr_ts/spr_ts.yy",},},

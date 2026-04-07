@@ -32,7 +32,7 @@ if (place_meeting(x + hsp, y, obj_block)) {
     hsp = 0;
 }
 x += hsp;
-image_xscale=dir;
+image_xscale = dir;
 // MOVIMENTO VERTICAL
 if (place_meeting(x, y + vsp, obj_block)) {
     while (!place_meeting(x, y + sign(vsp), obj_block)) {
@@ -44,7 +44,7 @@ y += vsp;
 #endregion
 #region DANO (com cooldown)
 
-if (hit_cooldown > 0) hit_cooldown--;
+if (hit_cooldown > 0){hit_cooldown--;}
 
 var atk = instance_place(x, y, obj_atk);
 

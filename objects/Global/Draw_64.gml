@@ -45,15 +45,18 @@ if (p != noone) {
 }
 
 #endregion
-switch (global.tsu) {
-    case 3: frame = 0; break;
-    case 2: frame = 1; break;
-    case 1: frame = 2; break;
-    case 0: frame = 3; break;
+if (p != noone){
+	switch (global.tsu) {
+		case 3: frame = 0; break;
+		case 2: frame = 1; break;
+		case 1: frame = 2; break;
+		case 0: frame = 3; break;
+	}
+	draw_sprite(spr_ts, frame, 35, 10 );
 }
 
-// desenha o sprite no HUD
-draw_sprite(spr_ts, frame, 35, 10 );
+
+
 #region EFEITO KING CRIMSON
 
 if (global.kc_ativo) {
