@@ -3,9 +3,9 @@
   "%Name":"TSet_nRooms",
   "autoTileSets":[],
   "macroPageTiles":{
-    "SerialiseHeight":1,
+    "SerialiseHeight":2,
     "SerialiseWidth":6,
-    "TileSerialiseData":[0,1,2,3,4,5,],
+    "TileSerialiseData":[0,1,2,3,4,5,0,10,9,0,0,0,],
   },
   "name":"TSet_nRooms",
   "out_columns":4,

@@ -39,3 +39,5 @@ part_type_direction(part_spark, 0, 360, 0, 0);
 // Controle
 effect_active = false;
 shake = 0;
+
+frame = 0;

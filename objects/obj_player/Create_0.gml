@@ -1,3 +1,4 @@
+depth = -16000;
 image_index = 0;
 image_speed = 0;
 
@@ -7,7 +8,7 @@ vspd = 0;
 
 spd = 3;
 grv = 0.3;
-jspd = -8;
+jspd = -10;
 
 // estados
 tp = false;
