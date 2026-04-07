@@ -29,8 +29,8 @@
   "nineSlice":null,
   "origin":7,
   "parent":{
-    "name":"Sprite",
-    "path":"folders/Sprite.yy",
+    "name":"Portas",
+    "path":"folders/Sprite/Portas.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

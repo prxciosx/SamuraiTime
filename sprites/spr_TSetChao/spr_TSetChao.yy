@@ -44,8 +44,8 @@
   },
   "origin":0,
   "parent":{
-    "name":"Sprite",
-    "path":"folders/Sprite.yy",
+    "name":"TileSet",
+    "path":"folders/Sprite/TileSet.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

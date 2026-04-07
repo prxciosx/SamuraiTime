@@ -41,8 +41,8 @@
   ],
   "name":"Room2",
   "parent":{
-    "name":"Cenas",
-    "path":"folders/Cenas.yy",
+    "name":"Corredor2",
+    "path":"folders/Cenas/Corredor2.yy",
   },
   "parentRoom":null,
   "physicsSettings":{

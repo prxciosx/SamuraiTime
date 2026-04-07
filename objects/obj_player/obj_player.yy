@@ -12,8 +12,8 @@
   "name":"obj_player",
   "overriddenProperties":[],
   "parent":{
-    "name":"Objetos",
-    "path":"folders/Objetos.yy",
+    "name":"Player",
+    "path":"folders/Objetos/Player.yy",
   },
   "parentObjectId":null,
   "persistent":true,
@@ -33,10 +33,7 @@
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
   "solid":false,
-  "spriteId":{
-    "name":"spr_playerJR",
-    "path":"sprites/spr_playerJR/spr_playerJR.yy",
-  },
+  "spriteId":null,
   "spriteMaskId":null,
   "visible":true,
 }
