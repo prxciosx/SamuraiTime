@@ -6,7 +6,7 @@ image_speed = 0;
 hspd = 0;
 vspd = 0;
 
-spd = 3;
+spd = 2;
 grv = 0.3;
 jspd = -10;
 
@@ -29,3 +29,5 @@ attack_delay = 15;
 
 state = "idle";
 state_old = "idle";
+
+som_ts = -1;

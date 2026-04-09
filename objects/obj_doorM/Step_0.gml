@@ -17,10 +17,12 @@ if (global.inm >= global.inm_max){
         image_index = 0;
         image_speed = 1;
         abrindo = true;
+		audio_play_sound(sou_VFX2, 2, false);
 	}
 }
 if (abrindo && image_index >= image_number - 1) {
-   room_goto(sala);
+	audio_stop_sound(sou_VFX2);
+	room_goto(sala);
 }
 #region HUD
 mostrar_texto = place_meeting(x, y, obj_player);

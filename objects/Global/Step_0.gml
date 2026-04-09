@@ -85,3 +85,27 @@ if (effect_active) {
     }
 }	
 #endregion
+var nova_musica = -1;
+
+switch(room){
+	case MenuI:
+		nova_musica = sou_menu;
+	break;
+	
+	case Room11:
+		nova_musica = sou_boss;
+	break;
+	
+	default:
+		nova_musica = sou_fase;
+	break;
+}
+
+if (musica_atual != nova_musica && nova_musica != -1) {
+	if (musica_atual != -1) {
+		audio_stop_sound(musica_atual);
+	}
+	
+	audio_play_sound(nova_musica, 1, true);
+	musica_atual = nova_musica;
+}

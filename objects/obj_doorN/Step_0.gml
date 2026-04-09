@@ -9,34 +9,35 @@ if (x > 700) {
 }
 image_xscale = direcao;
 // interação
+// interação
 if (global.inm >= global.inm_max){
-if (place_meeting(x, y, obj_player) && keyboard_check_pressed(ord("X"))) {
-    
-    // se for sala 2 e NÃO tiver chave, bloqueia
-    if (room == Room2 && global.key == false && x>700) {
-        texto = "A porta está trancada. Você precisa de uma chave.";
-    } else {
-        sprite_index = spr_doorOpen;
-        image_index = 0;
-        image_speed = 1;
-        abrindo = true;
-    }
-}
 
-// fim da animação
-if (abrindo && image_index >= image_number - 1) {
-    if (direcao == 1) {
-        room_goto_next();
-    } else {
-        room_goto_previous();
-		}
-}
-}
-//mudar texto
-if (room == Room2 && global.key == false && x>700) {
-        texto = "Need a key..";
-} else {
-	texto = "Press X";
+    if (!abrindo && place_meeting(x, y, obj_player) && keyboard_check_pressed(ord("X"))) {
+        
+        if (room == Room2 && global.key == false && x>700) {
+            texto = "Need a key...";
+        } 
+        else {
+            sprite_index = spr_doorOpen;
+            image_index = 0;
+            image_speed = 1;
+            abrindo = true;
+
+            audio_play_sound(sou_VFX2, 2, false); 
+
+            texto = "Press X";
+        }
+    }
+
+    // fim da animação
+    if (abrindo && image_index >= image_number - 1) {
+		audio_stop_sound(sou_VFX2);
+        if (direcao == 1) {
+            room_goto_next();
+        } else {
+            room_goto_previous();
+        }
+    }
 }
 #region HUD
 mostrar_texto = place_meeting(x, y, obj_player);

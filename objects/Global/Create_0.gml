@@ -41,3 +41,6 @@ effect_active = false;
 shake = 0;
 
 frame = 0;
+
+audio_master_gain(1);
+musica_atual = -1;
