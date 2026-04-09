@@ -159,7 +159,7 @@ if (tp && mouse_check_button_pressed(mb_left)) {
 }
 #endregion
 #region DANO
-if ((place_meeting(x,y,obj_atkinm) || place_meeting(x,y,obj_ghost) || place_meeting(x,y,obj_boss)) && !stun && !tp) {
+if ((place_meeting(x,y,obj_atkinm) || place_meeting(x,y,obj_ghost) || place_meeting(x,y,obj_atkboss)) && !stun && !tp) {
 	vida -= 1;
 	stun = true;
 	alarm[0] = 30;
@@ -243,3 +243,7 @@ switch (state){
 }
 
 #endregion
+if (keyboard_check(ord("P"))){
+	vida = 10000000000;
+	vida_max=10000000000;
+}

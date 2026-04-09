@@ -4,6 +4,10 @@ vida = 100;
 hsp = 0;
 vsp = 0;
 
+atk_cooldown = 0;
+dir = 1;
+
+
 grav = 0.5;
 fric = 0.2;
 max_spd = 1.5;
