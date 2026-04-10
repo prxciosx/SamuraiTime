@@ -173,7 +173,8 @@ if (vida <= 0) {
 #endregion
 #region RESET
 if (keyboard_check_pressed(ord("R"))) {
-	game_restart();
+	room_goto(MenuI);
+	global.key = false;
 }
 #endregion
 #region EFEITO KC

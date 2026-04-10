@@ -30,4 +30,6 @@ attack_delay = 15;
 state = "idle";
 state_old = "idle";
 
+morrendo = false;
+
 som_ts = -1;
