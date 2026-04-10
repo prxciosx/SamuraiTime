@@ -4,7 +4,7 @@ switch (room) {
 	case Room5: sala = Room2; depth = -16001; break;
     case Room3: sala = Room10; depth = -16001; break;
 	case Room10: sala = Room3; depth = -16001; break;
-    case Room7: sala = Room11; depth = -15999; break;
+    case Room7: sala = Room11; depth = -16001; break;
 	case Room11: sala = Room7; depth = -16001; break;
 }
 

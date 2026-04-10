@@ -31,8 +31,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_atk",
-    "path":"sprites/spr_atk/spr_atk.yy",
+    "name":"spr_atkinm",
+    "path":"sprites/spr_atkinm/spr_atkinm.yy",
   },
   "spriteMaskId":null,
   "visible":true,
