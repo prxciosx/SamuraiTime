@@ -1,18 +1,18 @@
 {
   "$GMSound":"v2",
-  "%Name":"sou_menu",
+  "%Name":"sou_backstory",
   "audioGroupId":{
     "name":"audiogroup_default",
     "path":"audiogroups/audiogroup_default",
   },
   "bitDepth":1,
   "channelFormat":0,
-  "compression":3,
+  "compression":1,
   "compressionQuality":4,
   "conversionMode":0,
-  "duration":12.57,
+  "duration":18.57,
   "exportDir":"",
-  "name":"sou_menu",
+  "name":"sou_backstory",
   "parent":{
     "name":"Music",
     "path":"folders/Music.yy",
@@ -21,6 +21,6 @@
   "resourceType":"GMSound",
   "resourceVersion":"2.0",
   "sampleRate":44100,
-  "soundFile":"sou_menu.mp3",
+  "soundFile":"sou_backstory.mp3",
   "volume":0.6,
 }

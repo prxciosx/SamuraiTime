@@ -175,6 +175,7 @@ if (vida <= 0) {
 if (keyboard_check_pressed(ord("R"))) {
 	room_goto(MenuI);
 	global.key = false;
+	instance_destroy();
 }
 #endregion
 #region EFEITO KC

@@ -70,6 +70,7 @@
     {"id":{"name":"Room7","path":"rooms/Room7/Room7.yy",},},
     {"id":{"name":"Room8","path":"rooms/Room8/Room8.yy",},},
     {"id":{"name":"Room9","path":"rooms/Room9/Room9.yy",},},
+    {"id":{"name":"sou_backstory","path":"sounds/sou_backstory/sou_backstory.yy",},},
     {"id":{"name":"sou_boss","path":"sounds/sou_boss/sou_boss.yy",},},
     {"id":{"name":"sou_fase","path":"sounds/sou_fase/sou_fase.yy",},},
     {"id":{"name":"sou_menu","path":"sounds/sou_menu/sou_menu.yy",},},

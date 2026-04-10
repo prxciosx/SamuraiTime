@@ -1,4 +1,4 @@
-// soma tempo real
+ // soma tempo real
 tempo += delta_time / 1000000;
 
 // CENAS NORMAIS

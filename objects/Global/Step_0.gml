@@ -96,6 +96,10 @@ switch(room){
 		nova_musica = sou_boss;
 	break;
 	
+	case BackStory:
+		nova_musica = sou_backstory;
+	break;
+	
 	default:
 		nova_musica = sou_fase;
 	break;

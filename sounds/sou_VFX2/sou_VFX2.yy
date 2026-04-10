@@ -10,7 +10,7 @@
   "compression":0,
   "compressionQuality":4,
   "conversionMode":0,
-  "duration":51.226124,
+  "duration":2.23,
   "exportDir":"",
   "name":"sou_VFX2",
   "parent":{
