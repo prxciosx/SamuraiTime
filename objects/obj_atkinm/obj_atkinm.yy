@@ -9,8 +9,8 @@
   "name":"obj_atkinm",
   "overriddenProperties":[],
   "parent":{
-    "name":"Instances",
-    "path":"folders/Objetos/Instances.yy",
+    "name":"INIMIGO",
+    "path":"folders/Objetos/NPC/INIMIGO.yy",
   },
   "parentObjectId":null,
   "persistent":false,

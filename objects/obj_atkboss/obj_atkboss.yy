@@ -9,8 +9,8 @@
   "name":"obj_atkboss",
   "overriddenProperties":[],
   "parent":{
-    "name":"Instances",
-    "path":"folders/Objetos/Instances.yy",
+    "name":"BOSS",
+    "path":"folders/Objetos/NPC/BOSS.yy",
   },
   "parentObjectId":null,
   "persistent":false,

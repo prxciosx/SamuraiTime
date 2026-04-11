@@ -44,3 +44,5 @@ frame = 0;
 
 audio_master_gain(1);
 musica_atual = -1;
+
+global.inimigo_atacando = noone;

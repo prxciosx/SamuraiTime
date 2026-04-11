@@ -9,8 +9,8 @@
   "name":"obj_atk",
   "overriddenProperties":[],
   "parent":{
-    "name":"Instances",
-    "path":"folders/Objetos/Instances.yy",
+    "name":"Player",
+    "path":"folders/Objetos/Player.yy",
   },
   "parentObjectId":null,
   "persistent":false,

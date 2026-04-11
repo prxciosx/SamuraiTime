@@ -1,7 +1,6 @@
 #region INPUT
 var move = keyboard_check(ord("D")) - keyboard_check(ord("A"));
 #endregion
-
 #region ATAQUE NORMAL
 if (attack_cooldown > 0) attack_cooldown--;
 
@@ -16,7 +15,6 @@ if (!tp && mouse_check_button_pressed(mb_left) && attack_cooldown <= 0) {
 	attack_cooldown = attack_delay;
 }
 #endregion
-
 #region TIME STOP
 
 if (keyboard_check(ord("C")) && global.tsu > 0) {
@@ -40,19 +38,16 @@ if (keyboard_check(ord("C")) && global.tsu > 0) {
 }
 
 #endregion
-
 #region DIREÇÃO
 if (move != 0 && !ataque) {
 	image_xscale = move;
 	dash_dir = move;
 }
 #endregion
-
 #region TIME SCALE
 var ts = 1;
 if (global.time_scale != undefined) ts = global.time_scale;
 #endregion
-
 #region MOVIMENTO
 if (!tp && !ataque) {
 	hspd = move * spd;
@@ -62,11 +57,9 @@ if (!tp && !ataque) {
 	vspd = 0;
 }
 #endregion
-
 #region VELOCIDADE FINAL
 var h_final = hspd * ts;
 #endregion
-
 #region COLISÃO HORIZONTAL
 if (place_meeting(x + h_final, y, obj_block)) {
 	while (!place_meeting(x + sign(h_final), y, obj_block)) {
@@ -76,14 +69,12 @@ if (place_meeting(x + h_final, y, obj_block)) {
 }
 x += h_final;
 #endregion
-
 #region PULO
 if (!tp && keyboard_check_pressed(vk_space) && jump > 0 && !ataque) {
 	vspd = jspd;
 	jump--;
 }
 #endregion
-
 #region COLISÃO VERTICAL
 if (vspd > 0 && place_meeting(x, y + vspd, obj_block)) {
 	while (!place_meeting(x, y + 1, obj_block)) {
@@ -102,7 +93,6 @@ if (vspd < 0 && place_meeting(x, y + vspd, obj_block)) {
 }
 y += vspd;
 #endregion
-
 #region DASH
 if (!tp && keyboard_check_pressed(ord("Q")) && dash_available > 0 && !ataque) {
 	if (!place_meeting(x + dash_power * dash_dir, y, obj_block)) {
@@ -111,7 +101,6 @@ if (!tp && keyboard_check_pressed(ord("Q")) && dash_available > 0 && !ataque) {
 	}
 }
 #endregion
-
 #region SLASH
 if (tp && mouse_check_button_pressed(mb_left)) {	
 
@@ -158,7 +147,27 @@ if (tp && mouse_check_button_pressed(mb_left)) {
 	global.tsu -= 1;
 }
 #endregion
-
+#region DANO 
+if ((place_meeting(x,y,obj_atkinm) || place_meeting(x,y,obj_ghost) || place_meeting(x,y,obj_atkboss)) && !stun && !tp) {
+	vida -= 1;
+	stun = true;
+	alarm[0] = 30;
+	image_blend = c_red; 
+	} 
+	if (vida <= 0){
+		room_goto(MenuI);
+		global.key = false;
+		instance_destroy(); 
+	} 
+#endregion
+#region EFEITO KC
+if (global.kc_ativo && irandom(2) == 0) {
+	var ghost = instance_create_layer(x, y, "Instances", obj_playerghost);
+	ghost.image_xscale = image_xscale;
+	ghost.sprite_index = sprite_index;
+	ghost.image_index = image_index; 
+	}
+#endregion
 #region STATE
 
 var no_chao = place_meeting(x, y+1, obj_block);
@@ -183,7 +192,6 @@ else {
 }
 
 #endregion
-
 #region ANIMAÇÃO
 
 switch (state){
@@ -230,8 +238,8 @@ switch (state){
 }
 
 #endregion
-
 if (keyboard_check(ord("P"))){
 	vida = 10000000000;
 	vida_max=10000000000;
+	global.tsu = 1000000000000;
 }

@@ -1,9 +1,9 @@
 {
   "$GMSprite":"v2",
   "%Name":"spr_playerWL",
-  "bboxMode":0,
+  "bboxMode":2,
   "bbox_bottom":125,
-  "bbox_left":14,
+  "bbox_left":26,
   "bbox_right":103,
   "bbox_top":2,
   "collisionKind":1,

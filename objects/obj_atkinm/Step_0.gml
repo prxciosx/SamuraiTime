@@ -1,24 +1,30 @@
-if (instance_exists(obj_inm)){
-#region SEGUIR INIMIGO (posição do ataque)
+#region SEGUE O DONO
 
-x = obj_inm.x + 50 * obj_inm.image_xscale;
-y = obj_inm.y - 50;
+if (instance_exists(owner)) {
 
-image_xscale = obj_inm.image_xscale;
+    x = owner.x + 50 * owner.image_xscale;
+    y = owner.y - 50;
+
+    image_xscale = owner.image_xscale;
+
+} else {
+    instance_destroy();
+}
 
 #endregion
+
+
 #region TEMPO DE VIDA
 
 life--;
 
 if (life <= 0) {
-	if (instance_exists(owner)) {
+
+    if (instance_exists(owner)) {
         owner.ataque = false;
     }
-    obj_player.ataque = false; // RESET GARANTIDO
+
     instance_destroy();
-} 
-#endregion
-} else {
-	instance_destroy();
 }
+
+#endregion

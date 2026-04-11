@@ -9,8 +9,8 @@
   "name":"obj_inm",
   "overriddenProperties":[],
   "parent":{
-    "name":"NPC",
-    "path":"folders/Objetos/NPC.yy",
+    "name":"INIMIGO",
+    "path":"folders/Objetos/NPC/INIMIGO.yy",
   },
   "parentObjectId":null,
   "persistent":false,

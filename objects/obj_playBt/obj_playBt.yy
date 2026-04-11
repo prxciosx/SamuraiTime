@@ -8,8 +8,8 @@
   "name":"obj_playBt",
   "overriddenProperties":[],
   "parent":{
-    "name":"Instances",
-    "path":"folders/Objetos/Instances.yy",
+    "name":"HUD",
+    "path":"folders/Objetos/HUD.yy",
   },
   "parentObjectId":null,
   "persistent":false,

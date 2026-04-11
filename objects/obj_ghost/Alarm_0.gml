@@ -1,0 +1,1 @@
+exit; // para completamente o inimigo

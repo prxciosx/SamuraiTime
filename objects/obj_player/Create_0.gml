@@ -33,3 +33,5 @@ state_old = "idle";
 morrendo = false;
 
 som_ts = -1;
+
+atacado_por = noone;

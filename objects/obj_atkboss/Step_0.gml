@@ -3,12 +3,12 @@ if (life == 10) {
 
     var dir = 1;
 
-	if (instance_exists(owner) && variable_instance_exists(owner, "dir")) {
-		dir = owner.dir;
-	}
+    if (instance_exists(owner)) {
+        dir = sign(owner.image_xscale); // USA A DIREÇÃO REAL
+    }
 
-    x = (dir > 0) ? owner.bbox_right : owner.bbox_left;
-    y = owner.y - 40;
+    x = owner.x
+    y = owner.y
 
     image_xscale = dir;
 }

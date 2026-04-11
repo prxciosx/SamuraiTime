@@ -4,7 +4,7 @@ if (!global.ts) {
 	move_towards_point(x, y, 0);
 	hspd = 0;
 	image_speed = 0;
-    exit; // para completamente o inimigo
+	alarm[0] = 120;
 } else{
 	image_speed = 1;
 	hspd = 3;

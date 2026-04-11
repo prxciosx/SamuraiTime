@@ -10,8 +10,8 @@
   "name":"obj_boss",
   "overriddenProperties":[],
   "parent":{
-    "name":"NPC",
-    "path":"folders/Objetos/NPC.yy",
+    "name":"BOSS",
+    "path":"folders/Objetos/NPC/BOSS.yy",
   },
   "parentObjectId":null,
   "persistent":false,

@@ -6,6 +6,8 @@ if (global.time_scale != undefined) {
 }
 
 if (global.ts){
+	image_speed = 0;
+	image_index = 0;
 	exit;
 }
 #endregion
@@ -55,20 +57,22 @@ y += vsp;
 
 #region ATAQUE
 
-// verifica se player está na frente
 var player_na_frente = (p != noone && sign(p.x - x) == dir);
+var dist = (p != noone) ? point_distance(x, y, p.x, p.y) : 9999;
 
-// mesma lógica do outro inimigo
-if (player_na_frente && place_meeting(x + 50 * dir, y, obj_player)) {
-
+if (player_na_frente && dist < 200) {
 
     if (atk_cooldown <= 0) {
-        var atki = instance_create_depth(x + 50 * dir, y - 50, depth - 1, obj_atkboss);
+
+        show_debug_message("ATAQUE CRIADO"); // DEBUG
+
+        var atki = instance_create_depth(x + 60 * dir, y - 32, depth - 1, obj_atkboss);
         atki.image_xscale = dir;
+
         atk_cooldown = 30;
     }
 
-    // animação de ataque
+    // animação
     if (sprite_index != spr_bossatk) {
         sprite_index = spr_bossatk;
         image_index = 0;
@@ -78,7 +82,6 @@ if (player_na_frente && place_meeting(x + 50 * dir, y, obj_player)) {
 
 } else {
 
-    // animação normal
     if (sprite_index != spr_boss) {
         sprite_index = spr_boss;
         image_index = 0;
