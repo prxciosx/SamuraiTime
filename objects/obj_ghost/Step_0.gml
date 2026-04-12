@@ -11,7 +11,6 @@ if (!global.ts) {
 }
 
 #endregion
-
 #region MOVIMENTO
 
 move_towards_point(obj_player.x, obj_player.y, hspd);
@@ -24,11 +23,11 @@ if (obj_player.x > x){
 
 image_xscale = dir ;
 #endregion
-
 #region MORTE
 
 if (vida <= 0) {
 	global.inm += 1;
+	audio_play_sound(sou_atackVFX, 2, false)
     instance_destroy();
 }
 

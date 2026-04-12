@@ -18,7 +18,8 @@ if (!tp && mouse_check_button_pressed(mb_left) && attack_cooldown <= 0) {
 #region TIME STOP
 
 if (keyboard_check(ord("C")) && global.tsu > 0) {
-
+	
+	global.tutorial = false;
 	tp = true;
 	global.ts = true;
 
@@ -238,8 +239,18 @@ switch (state){
 }
 
 #endregion
+#region RESET
+if (keyboard_check(ord("R"))){
+	global.key = false;
+	room_goto(Room1);
+	audio_play_sound(sou_reset, 2, false);
+	instance_destroy();
+}
+#endregion
+if (room = GameEnd){
+	instance_destroy();
+}
 if (keyboard_check(ord("P"))){
-	vida = 10000000000;
-	vida_max=10000000000;
-	global.tsu = 1000000000000;
+	vida = 10000000000000000;
+	global.tsu = 1000000000000000000;
 }

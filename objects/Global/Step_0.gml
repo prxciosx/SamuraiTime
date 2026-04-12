@@ -1,4 +1,4 @@
-
+global.ghost = instance_number(obj_ghost);
 // controla efeito King Crimson
 if (global.kc_ativo) {
     global.kc_timer--;
@@ -98,6 +98,11 @@ switch(room){
 	
 	case BackStory:
 		nova_musica = sou_backstory;
+	break;
+	
+	case GameEnd:
+		nova_musica = sou_GameEnd;
+		creditos = true;
 	break;
 	
 	default:

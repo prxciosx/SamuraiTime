@@ -20,6 +20,6 @@ else if (image_index == scene_max) {
     
     // só sai quando apertar
     if (keyboard_check_pressed(ord("X"))) {
-        room_goto(MenuI);
+        room_goto_next();
     }
 }

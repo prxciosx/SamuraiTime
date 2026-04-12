@@ -15,6 +15,7 @@ if (!hit) {
     if (inimigo != noone) {
         inimigo.vida -= damage;
         hit = true;
+		audio_play_sound(sou_atackVFX, 2, false);
     }
 }
 

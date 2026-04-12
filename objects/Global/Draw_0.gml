@@ -1,6 +1,5 @@
 if (effect_active) {
-    // Desenha partículas (sem atrapalhar os sprites)
-    part_system_drawit(part_sys);
+    
     
     // NÃO desenha a surface novamente!
     // Apenas aplica o filtro por cima do que já foi desenhado

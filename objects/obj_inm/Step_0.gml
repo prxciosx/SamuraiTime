@@ -67,6 +67,7 @@ if (p != noone) {
     if (random(1) < 0.7) { // 70% chance de atacar
         
         var atki = instance_create_depth(x + 40 * dir, y - 50, depth - 1, obj_atkinm);
+		audio_play_sound(sou_atackVFX, 2, false)
         atki.owner = id;
         atki.image_xscale = dir;
 
@@ -125,6 +126,9 @@ if (atk_player != noone) {
 
 if (vida <= 0) {
     global.inm += 1;
+	if (global.tsu<3){
+		global.tsu +=1;
+	}
     instance_destroy();
 }
 

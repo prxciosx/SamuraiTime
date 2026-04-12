@@ -1,15 +1,17 @@
 {
   "$GMObject":"",
-  "%Name":"obj_playBt",
+  "%Name":"obj_doorGameEnd",
   "eventList":[
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":64,"eventType":8,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
-  "name":"obj_playBt",
+  "name":"obj_doorGameEnd",
   "overriddenProperties":[],
   "parent":{
-    "name":"HUD",
-    "path":"folders/Objetos/HUD.yy",
+    "name":"Instances",
+    "path":"folders/Objetos/Instances.yy",
   },
   "parentObjectId":null,
   "persistent":false,
@@ -30,8 +32,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_pbutton",
-    "path":"sprites/spr_pbutton/spr_pbutton.yy",
+    "name":"spr_door",
+    "path":"sprites/spr_door/spr_door.yy",
   },
   "spriteMaskId":null,
   "visible":true,

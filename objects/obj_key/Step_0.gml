@@ -4,7 +4,6 @@ if (global.key == false){
 		global.key = true;
 		audio_play_sound(sou_VFX1, 2, false);
 		instance_destroy();
-		show_debug_message("PEGOU");
 	}
 }else{
 	instance_destroy();

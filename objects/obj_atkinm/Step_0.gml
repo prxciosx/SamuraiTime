@@ -12,8 +12,6 @@ if (instance_exists(owner)) {
 }
 
 #endregion
-
-
 #region TEMPO DE VIDA
 
 life--;

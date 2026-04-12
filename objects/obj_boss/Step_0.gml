@@ -11,7 +11,6 @@ if (global.ts){
 	exit;
 }
 #endregion
-
 #region FOLLOW PLAYER
 var p = instance_nearest(x, y, obj_player);
 
@@ -20,7 +19,6 @@ if (p != noone) {
     hsp += dir * 0.1;
 }
 #endregion
-
 #region MOVIMENTO + FÍSICA
 
 // GRAVIDADE
@@ -54,7 +52,6 @@ if (place_meeting(x, y + vsp, obj_block)) {
 y += vsp;
 
 #endregion
-
 #region ATAQUE
 
 var player_na_frente = (p != noone && sign(p.x - x) == dir);
@@ -64,10 +61,9 @@ if (player_na_frente && dist < 200) {
 
     if (atk_cooldown <= 0) {
 
-        show_debug_message("ATAQUE CRIADO"); // DEBUG
-
         var atki = instance_create_depth(x + 60 * dir, y - 32, depth - 1, obj_atkboss);
         atki.image_xscale = dir;
+		audio_play_sound(sou_atackVFX, 2, false);
 
         atk_cooldown = 30;
     }
@@ -94,7 +90,6 @@ if (player_na_frente && dist < 200) {
 if (atk_cooldown > 0) atk_cooldown--;
 
 #endregion
-
 #region DANO (com cooldown)
 
 if (hit_cooldown > 0) hit_cooldown--;
@@ -107,13 +102,11 @@ if (atk != noone && hit_cooldown <= 0) {
 }
 
 #endregion
-
 #region MORTE
 if (vida <= 0) {
     instance_destroy();
 }
 #endregion
-
 #region PODER (SLOW GLOBAL)
 
 tempo_poder++;
