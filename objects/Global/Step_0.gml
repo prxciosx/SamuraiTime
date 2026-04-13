@@ -1,3 +1,4 @@
+if (instance_exists(obj_player)){
 global.ghost = instance_number(obj_ghost);
 // controla efeito King Crimson
 if (global.kc_ativo) {
@@ -85,6 +86,8 @@ if (effect_active) {
     }
 }	
 #endregion
+}
+#region MUSICA
 var nova_musica = -1;
 
 switch(room){
@@ -117,4 +120,8 @@ if (musica_atual != nova_musica && nova_musica != -1) {
 	
 	audio_play_sound(nova_musica, 1, true);
 	musica_atual = nova_musica;
+}
+#endregion
+if (room = Room8 && !instance_exists(obj_player)){
+	instance_create_depth(obj_save.x, obj_save.y, 0, obj_player);
 }

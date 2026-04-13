@@ -240,16 +240,18 @@ switch (state){
 
 #endregion
 #region RESET
-if (keyboard_check(ord("R"))){
+if (keyboard_check_pressed(ord("R"))){
 	global.key = false;
-	room_goto(Room1);
+	room_goto(global.save);
 	audio_play_sound(sou_reset, 2, false);
 	instance_destroy();
 }
 #endregion
+#region CREDITOS
 if (room = GameEnd){
 	instance_destroy();
 }
+#endregion
 if (keyboard_check(ord("P"))){
 	vida = 10000000000000000;
 	global.tsu = 1000000000000000000;

@@ -1,3 +1,4 @@
+if (instance_exists(obj_player)){
 if (effect_active) {
     
     
@@ -20,4 +21,5 @@ if (effect_active) {
     draw_set_alpha(1);
     
    
+}
 }

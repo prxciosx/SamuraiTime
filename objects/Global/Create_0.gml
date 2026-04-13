@@ -52,3 +52,5 @@ global.tutorial = false;
 global.ghost = 0;
 
 creditos = false;
+
+global.save = Room1;

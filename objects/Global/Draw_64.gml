@@ -1,3 +1,4 @@
+if instance_exists(obj_player){
 #region HUD VIDA
 
 var p = instance_find(obj_player, 0);
@@ -127,3 +128,4 @@ if (global.tutorial){
 	draw_text(tx, ty, txt);
 }
 #endregion
+}

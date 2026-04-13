@@ -1,10 +1,10 @@
 {
   "$GMSprite":"v2",
   "%Name":"spr_playerAR",
-  "bboxMode":0,
+  "bboxMode":2,
   "bbox_bottom":125,
-  "bbox_left":20,
-  "bbox_right":173,
+  "bbox_left":26,
+  "bbox_right":103,
   "bbox_top":2,
   "collisionKind":1,
   "collisionTolerance":0,
